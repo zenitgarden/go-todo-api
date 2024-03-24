@@ -1,0 +1,8 @@
+CREATE TABLE categories (
+    id VARCHAR(255) NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    owner VARCHAR(255) NOT NULL,
+    PRIMARY KEY(id)
+) ENGINE = InnoDB;
+
+ALTER TABLE categories ADD CONSTRAINT categories_owner_fkey FOREIGN KEY (owner) REFERENCES users(username) ON DELETE CASCADE ON UPDATE CASCADE;
