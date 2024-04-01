@@ -47,7 +47,7 @@ func (service *TodoServiceImpl) Create(c *fiber.Ctx, r web.TodoCreateRequest) we
 		if valid {
 			service.CategoryRepository.SaveTodoCategories(c, tx, todoCategories)
 		} else {
-			panic(exception.NewNotFoundError("category is not found", values))
+			panic(exception.NewNotFoundError("category is not found", values.Ids))
 		}
 	}
 	todo, _ = service.TodoRepository.FindById(c, tx, todo.Id)
